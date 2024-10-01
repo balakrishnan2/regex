@@ -42,6 +42,21 @@ def count_word_occurance(sentence, str):
     """
     Function to count occurance of the given word in the sentence
     Parameter : sentence, word
-    retunr: count (number)
+    return: count (number)
     """
     return len(re.findall(str, sentence))
+
+def count_repeated_char(str):
+    """
+    Function to count repeated character of the given word.
+    Paramerter: String
+    return: dict
+    """
+    repeated_chars = re.findall(r'([a-zA-Z])+', str)
+    count_dict = {}
+    for char in repeated_chars:
+        count_dict[char] = str.count(char)
+
+    # Filter to include only repeated characters
+    repeated_count = {char: count for char, count in count_dict.items()}
+    return repeated_count
